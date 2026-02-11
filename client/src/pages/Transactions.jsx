@@ -98,10 +98,10 @@ const Transactions = ({ user }) => {
 		);
 
 	return (
-		<div className="p-2 lg:pt-20 lg:px-6 max-w-screen mx-auto my-auto min-h-[calc(100vh-5rem)] bg-gray-50/50">
-			<div className="mb-2 flex items-center justify-between">
-				<h1 className="text-lg lg:text-xl font-bold text-gray-800">
-					Transaction History
+		<div className="p-2 lg:px-6 max-w-screen mx-auto my-auto min-h-[calc(100vh-5rem)] bg-gray-50/50">
+			<div className="mb-2 flex bg-white md:bg-transparent px-2 py-2 rounded-full items-center justify-between">
+				<h1 className="text-lg lg:text-xl font-bold text-gray-800 ml-1">
+					History
 				</h1>
 				<button
 					className="inline-flex bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-all flex items-center gap-3 "
@@ -114,7 +114,7 @@ const Transactions = ({ user }) => {
 			</div>
 
 			<div className="grid grid-cols-1">
-				<div className="w-full bg-white rounded-xl border border-gray-100 h-[750px] overflow-hidden">
+				<div className="w-full bg-white rounded-xl h-[800px] overflow-hidden">
 					<TransactionTable
 						transactions={transactions}
 						onDelete={handleDelete}
@@ -164,7 +164,7 @@ const Transactions = ({ user }) => {
 									}
 									className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${
 										editFormData.type === "expense"
-											? "bg-white text-rose-600 shadow-sm"
+											? "bg-white text-rose-600"
 											: "text-gray-500"
 									}`}>
 									Expense
@@ -176,7 +176,7 @@ const Transactions = ({ user }) => {
 									}
 									className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${
 										editFormData.type === "income"
-											? "bg-white text-emerald-600 shadow-sm"
+											? "bg-white text-emerald-600"
 											: "text-gray-500"
 									}`}>
 									Income

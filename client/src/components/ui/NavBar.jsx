@@ -20,7 +20,7 @@ const Navbar = ({ user, setUser }) => {
 	return (
 		<>
 			{/* Desktop Navbar */}
-			<nav className="hidden md:block fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md  ">
+			<nav className="hidden md:block sticky top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md  ">
 				<div className="max-w-screen mx-auto px-6 h-16 flex items-center justify-between">
 					<Link
 						to="/dashboard"
@@ -35,10 +35,10 @@ const Navbar = ({ user, setUser }) => {
 
 					{/* 2. Navigation Links (Center) */}
 					{user && (
-						<div className="flex items-center gap-1 bg-gray-100/50 p-1 rounded-full ">
+						<div className="grid grid-cols-3 items-center gap-1 bg-gray-100/50 p-1 rounded-full ">
 							<Link
 								to="/dashboard"
-								className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/dashboard")
 										? "bg-white text-brand-600 -sm ring-1 ring-gray-200"
 										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
@@ -48,7 +48,7 @@ const Navbar = ({ user, setUser }) => {
 							</Link>
 							<Link
 								to="/transactions"
-								className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/transactions")
 										? "bg-white text-brand-600 text-sm"
 										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
@@ -58,7 +58,7 @@ const Navbar = ({ user, setUser }) => {
 							</Link>
 							<Link
 								to="/profile"
-								className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/profile")
 										? "bg-white text-brand-600 -sm ring-1 ring-gray-200"
 										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
