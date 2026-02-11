@@ -56,9 +56,9 @@ const Transactions = ({ user }) => {
 		);
 
 	return (
-		<div className="p-6 max-w-screen mx-auto my-auto min-h-[calc(100vh-5rem)] bg-gray-50/50">
-			<div className="mb-6 flex items-center justify-between">
-				<h1 className="text-2xl font-bold text-gray-800">
+		<div className="p-2 lg:pt-20 lg:px-6 max-w-screen mx-auto my-auto min-h-[calc(100vh-5rem)] bg-gray-50/50">
+			<div className="mb-2 flex items-center justify-between">
+				<h1 className="text-lg lg:text-xl font-bold text-gray-800">
 					Transaction History
 				</h1>
 				<button

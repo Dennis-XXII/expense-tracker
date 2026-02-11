@@ -82,7 +82,7 @@ const TransactionTable = ({ transactions, onDelete }) => {
 	].sort();
 
 	return (
-		<div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full">
+		<div className="bg-white rounded-xl border border-gray-100 overflow-hidden flex flex-col h-full">
 			{/* Headers*/}
 			<div className="p-5 border-b border-gray-100 bg-white sticky top-0 z-20">
 				<div className="flex flex-col gap-4">

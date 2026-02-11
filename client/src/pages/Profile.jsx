@@ -17,10 +17,12 @@ const Profile = ({ user, setUser }) => {
 	};
 
 	return (
-		<div className="p-6 max-w-2xl mx-auto min-h-screen">
-			<h1 className="text-3xl font-bold text-gray-800 mb-6">My Profile</h1>
+		<div className="p-2 lg:pt-20 lg:px-6 max-w-screen mx-auto min-h-screen">
+			<h1 className="hidden md:blocktext-3xl font-bold text-gray-800 mb-2">
+				My Profile
+			</h1>
 
-			<div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+			<div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden min-h-[800px]">
 				<div className="bg-brand-500 h-32 relative">
 					<div className="absolute -bottom-10 left-8">
 						<div className="w-24 h-24 bg-white rounded-full p-1 shadow-md">
@@ -40,7 +42,7 @@ const Profile = ({ user, setUser }) => {
 						</h2>
 						<p className="text-gray-500 font-medium">@{user.username}</p>
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 						<div className="p-5 bg-gray-50 rounded-xl border border-gray-100">
 							<div className="flex items-center gap-2 mb-1">
 								<FaCoins />
