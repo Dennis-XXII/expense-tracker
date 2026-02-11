@@ -6,6 +6,7 @@ import {
 } from "../utils/api";
 import TransactionTable from "../components/ui/charts/TransactionTable";
 import TransactionForm from "../components/ui/cards/TransactionForm";
+import { FaTimes } from "react-icons/fa";
 
 const Transactions = ({ user }) => {
 	const [transactions, setTransactions] = useState([]);
@@ -63,8 +64,10 @@ const Transactions = ({ user }) => {
 				<button
 					className="inline-flex bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-all flex items-center gap-3 "
 					onClick={() => setIsModalOpen(true)}>
-					<span className="text-xl font-light">+</span>
-					<span className="text-sm font-medium">Add Transaction</span>
+					<span className="text-md lg:text font-light">+</span>
+					<span className="text-xs lg:text-sm font-medium">
+						Add Transaction
+					</span>
 				</button>
 			</div>
 
