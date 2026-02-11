@@ -79,7 +79,7 @@ const ExpensePieChart = ({ transactions }) => {
 	}
 
 	return (
-		<div className="h-full w-full bg-white rounded-xl border border-gray-100  p-4 relative">
+		<div className="w-full h-full bg-white rounded-xl border border-gray-100  p-4 relative">
 			<ResponsiveContainer
 				width="100%"
 				height="100%"
@@ -110,7 +110,6 @@ const ExpensePieChart = ({ transactions }) => {
 					<Tooltip content={<CustomTooltip />} />
 					<Legend
 						verticalAlign="bottom"
-						height={36}
 						iconType="circle"
 						iconSize={8}
 						formatter={(value) => (

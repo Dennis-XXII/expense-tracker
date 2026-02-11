@@ -139,4 +139,48 @@ router.delete("/:id", async (req, res) => {
 	}
 });
 
+// @route   PUT /api/transactions/:id
+// @desc    Update an existing transaction
+router.put("/:id", async (req, res) => {
+	try {
+		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+			return res.status(400).json({ message: "Invalid Transaction ID" });
+		}
+
+		const { type, category, amount, date, description } = req.body;
+
+		// Validation
+		if (amount !== undefined && (isNaN(amount) || amount < 0)) {
+			return res
+				.status(400)
+				.json({ message: "Amount must be a positive number" });
+		}
+		if (type && !["income", "expense"].includes(type)) {
+			return res
+				.status(400)
+				.json({ message: "Type must be income or expense" });
+		}
+
+		// Find and Update
+		const transaction = await Transaction.findById(req.params.id);
+
+		if (!transaction) {
+			return res.status(404).json({ message: "Transaction not found" });
+		}
+
+		// Apply updates
+		if (type) transaction.type = type;
+		if (category) transaction.category = category;
+		if (amount) transaction.amount = Number(amount);
+		if (date) transaction.date = date;
+		if (description !== undefined) transaction.description = description;
+
+		const updatedTransaction = await transaction.save();
+		res.json(updatedTransaction);
+	} catch (error) {
+		console.error("Update transaction error:", error);
+		res.status(500).json({ message: "Error updating transaction" });
+	}
+});
+
 module.exports = router;

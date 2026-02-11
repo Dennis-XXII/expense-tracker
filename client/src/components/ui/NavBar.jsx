@@ -20,75 +20,78 @@ const Navbar = ({ user, setUser }) => {
 	return (
 		<>
 			{/* Desktop Navbar */}
-			<nav className="hidden md:block min-w-screen flex justify-between bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-				<div className="max-w-7xl px-6 h-16 flex items-center justify-between">
-					{/* Logo */}
+			<nav className="hidden md:block sticky top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md  ">
+				<div className="max-w-screen mx-auto px-6 h-16 flex items-center justify-between">
 					<Link
 						to="/dashboard"
-						className="flex items-center gap-2 font-bold text-xl text-gray-800 tracking-tight">
-						<div className="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center">
-							<FaWallet size={20} className="text-white" />
+						className="flex items-center gap-2 font-bold text-xl text-gray-800 tracking-tight hover:opacity-80 transition-opacity">
+						<div className="w-9 h-9 bg-brand-500 rounded-xl flex items-center justify-center -sm">
+							<FaWallet size={16} className="text-white" />
 						</div>
-						<span className="font-bold text-2xl">
-							Expense<span className="text-rose-500">Tracker</span>
+						<span className="font-bold text-xl">
+							Expense<span className="text-rose-500">.</span>Tracker
 						</span>
 					</Link>
 
+					{/* 2. Navigation Links (Center) */}
 					{user && (
-						<div className="flex items-center gap-2">
+						<div className="grid grid-cols-3 items-center gap-1 bg-gray-100/50 p-1 rounded-full ">
 							<Link
 								to="/dashboard"
-								className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/dashboard")
-										? "bg-brand-500 text-white"
-										: "text-gray-600 hover:bg-gray-100"
+										? "bg-white text-brand-600 -sm ring-1 ring-gray-200"
+										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
 								}`}>
-								<FaChartPie />
+								<FaChartPie size={14} />
 								Dashboard
 							</Link>
 							<Link
 								to="/transactions"
-								className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/transactions")
-										? "bg-brand-500 text-white"
-										: "text-gray-600 hover:bg-gray-100"
+										? "bg-white text-brand-600 text-sm"
+										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
 								}`}>
-								<FaList />
+								<FaList size={14} />
 								Transactions
 							</Link>
 							<Link
 								to="/profile"
-								className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/profile")
-										? "bg-brand-500 text-white"
-										: "text-gray-600 hover:bg-gray-100"
+										? "bg-white text-brand-600 -sm ring-1 ring-gray-200"
+										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
 								}`}>
-								<FaUser />
+								<FaUser size={14} />
 								Profile
 							</Link>
 						</div>
 					)}
 
+					{/* 3. User / Logout (Right) */}
 					{user && (
-						<button
-							onClick={handleLogout}
-							className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-full transition-all"
-							title="Logout">
-							<FaSignOutAlt size={18} />
-						</button>
+						<div className="flex items-center gap-4">
+							<button
+								onClick={handleLogout}
+								className="p-2.5 text-gray-400 hover:text-rose-600 hover:bg-rose-50 rounded-full transition-all  ransparent hover:"
+								title="Logout">
+								<FaSignOutAlt size={18} />
+							</button>
+						</div>
 					)}
 				</div>
 			</nav>
 
 			{user && (
-				<nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
-					<div className="flex items-center justify-around h-16 px-4">
+				<nav className="md:hidden px-4 pb-12 pt-2 bg-white fixed bottom-0 left-0 right-0 z-50">
+					<div className="grid grid-cols-3 items-center bg-gray-100 rounded-full justify-around h-16 px-1">
 						<Link
 							to="/dashboard"
-							className={`flex flex-col items-center justify-center gap-1 px-6 py-2 rounded-xl transition-all ${
+							className={`flex flex-col min-w-full items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
 								isActive("/dashboard")
-									? "text-blue-600 bg-blue-50"
-									: "text-gray-600"
+									? "text-brand-500 bg-white"
+									: "text-gray-400"
 							}`}>
 							<FaChartPie size={20} />
 							<span className="text-xs font-medium">Dashboard</span>
@@ -96,10 +99,10 @@ const Navbar = ({ user, setUser }) => {
 
 						<Link
 							to="/transactions"
-							className={`flex flex-col items-center justify-center gap-1 px-6 py-2 rounded-xl transition-all ${
+							className={`flex flex-col min-w-full items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
 								isActive("/transactions")
-									? "text-blue-600 bg-blue-50"
-									: "text-gray-600"
+									? "text-brand-500 bg-white"
+									: "text-gray-400"
 							}`}>
 							<FaList size={20} />
 							<span className="text-xs font-medium">Transactions</span>
@@ -107,10 +110,10 @@ const Navbar = ({ user, setUser }) => {
 
 						<Link
 							to="/profile"
-							className={`flex flex-col items-center justify-center gap-1 px-6 py-2 rounded-xl transition-all ${
+							className={`flex flex-col min-w-[112px] items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
 								isActive("/profile")
-									? "text-blue-600 bg-blue-50"
-									: "text-gray-600"
+									? "text-brand-500 bg-white"
+									: "text-gray-400"
 							}`}>
 							<FaUser size={20} />
 							<span className="text-xs font-medium">Profile</span>

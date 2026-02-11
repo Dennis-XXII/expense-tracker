@@ -139,15 +139,15 @@ const Dashboard = ({ user }) => {
 		);
 
 	return (
-		<div className="px-6 max-w-screen mx-auto my-auto space-y-2 min-h-[calc(100vh-5rem)] relative">
+		<div className="px-2 pb-32 lg:px-6 max-w-screen mx-auto my-auto space-y-2 min-h-[calc(100vh-5rem)] relative">
 			{/* Greeting */}
-			<div className="flex flex-row justify-between items-center py-8 ">
-				<h1 className="text-5xl font-base text-gray-800 align-middle tracking-tight">
+			<div className="flex flex-row justify-between items-center lg:py-8 ">
+				<h1 className="hidden md:block md:text-5xl font-base text-gray-800 align-middle tracking-tight break-words">
 					Good {TimeofDay()}, {user.firstName || user.username}!
 				</h1>
 
 				<button
-					className="inline-flex bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-all flex items-center gap-3 "
+					className="hidden md:inline-flex bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-all flex items-center gap-3 "
 					onClick={() => setIsModalOpen(true)}>
 					<span className="text-xl font-light">+</span>
 					<span className="text-sm font-medium">Add Transaction</span>
@@ -183,9 +183,14 @@ const Dashboard = ({ user }) => {
 						</svg>
 					</div>
 				</div>
+				<button
+					className="inline-flex md:hidden bg-gray-900 text-white px-3 py-2.5 rounded-full hover:bg-gray-800 transition-all flex items-center gap-3 "
+					onClick={() => setIsModalOpen(true)}>
+					<span className="text-xs font-medium leading-4">New Transaction</span>
+				</button>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+			<div className="grid grid-cols-2 md:grid-cols-4 gap-2">
 				<div className="bg-white px-6 py-6 rounded-xl  flex flex-col justify-between ">
 					<div className="flex items-center gap-3 text-blue-600 mb-2">
 						<div className="p-2 bg-blue-50 rounded-lg">
@@ -193,9 +198,8 @@ const Dashboard = ({ user }) => {
 						</div>
 						<span className="text-sm font-medium text-gray-500">Balance</span>
 					</div>
-					{/* GLOBAL BALANCE*/}
 					<p
-						className={`text-5xl py-3 font-bold ${dashboardStats.balance >= 0 ? "text-gray-800" : "text-rose-600"}`}>
+						className={`text-2xl md:text-5xl py-3 font-bold ${dashboardStats.balance >= 0 ? "text-gray-800" : "text-rose-600"}`}>
 						฿{dashboardStats.balance.toLocaleString()}
 					</p>
 				</div>
@@ -207,7 +211,7 @@ const Dashboard = ({ user }) => {
 						<span className="text-sm font-medium text-gray-500">Income</span>
 					</div>
 					{/* Filtered Income */}
-					<p className="text-5xl py-3 font-bold text-gray-800">
+					<p className="text-2xl md:text-5xl py-3 font-bold text-gray-800">
 						฿{dashboardStats.income.toLocaleString()}
 					</p>
 				</div>
@@ -220,7 +224,7 @@ const Dashboard = ({ user }) => {
 						<span className="text-sm font-medium text-gray-500">Expenses</span>
 					</div>
 					{/* Filtered Expenses */}
-					<p className="text-5xl py-3 font-bold text-gray-800">
+					<p className="text-2xl md:text-5xl py-3 font-bold text-gray-800">
 						฿{dashboardStats.expense.toLocaleString()}
 					</p>
 				</div>
@@ -231,25 +235,25 @@ const Dashboard = ({ user }) => {
 							<FaCreditCard />
 						</div>
 						<span className="text-sm font-medium text-gray-500">
-							Daily Limit
+							Spent Today
 						</span>
 					</div>
 					<div className="flex justify-between items-end z-10">
 						<div>
-							<p className="text-5xl py-3 font-bold text-gray-800">
-								฿{apiSummary.spentToday.toLocaleString()}
-								<span className="text-xs font-normal text-gray-400">
+							<p className="text-2xl md:text-5xl py-3 font-bold text-gray-800">
+								฿{apiSummary.spentToday.toLocaleString()}{" "}
+								<span className="text-sm font-medium text-gray-500">
 									{" "}
-									spent
+									/ {apiSummary.dailyLimit.toLocaleString()}
 								</span>
 							</p>
 						</div>
 						<div
-							className={`text-right py-3 ${apiSummary.remainingToday < 0 ? "text-rose-600" : "text-emerald-600"}`}>
+							className={`hidden md:text-right py-3 ${apiSummary.remainingToday < 0 ? "text-rose-600" : "text-emerald-600"}`}>
 							<p className="text-xs font-medium uppercase tracking-wider">
 								Remaining
 							</p>
-							<p className="text-lg font-bold">
+							<p className="text-xs md:text-lg font-bold">
 								{apiSummary.remainingToday < 0
 									? "OVER"
 									: `฿${apiSummary.remainingToday.toLocaleString()}`}

@@ -38,4 +38,9 @@ export const deleteTransaction = async (id) => {
 	return response.data;
 };
 
+export const updateTransaction = (id, data) =>
+	api.put(`/transactions/${id}`, data).then((res) => res.data);
+export const updateUser = (id, data) =>
+	api.put(`/users/${id}`, data).then((res) => res.data);
+
 export default api;
