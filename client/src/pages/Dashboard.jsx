@@ -139,7 +139,7 @@ const Dashboard = ({ user }) => {
 		);
 
 	return (
-		<div className="px-2 pb-32 lg:px-6 max-w-screen mx-auto my-auto space-y-2 min-h-[calc(100vh-5rem)] relative">
+		<div className="px-2 pb-20 lg:px-6 max-w-screen mx-auto my-auto space-y-2 min-h-[calc(100vh-5rem)] relative">
 			{/* Greeting */}
 			<div className="flex flex-row justify-between items-center lg:py-8 ">
 				<h1 className="hidden md:block md:text-5xl font-base text-gray-800 align-middle tracking-tight break-words">

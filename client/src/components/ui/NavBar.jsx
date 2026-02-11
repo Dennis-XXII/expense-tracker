@@ -84,11 +84,11 @@ const Navbar = ({ user, setUser }) => {
 			</nav>
 
 			{user && (
-				<nav className="md:hidden px-4 pb-12 pt-2 bg-white fixed bottom-0 left-0 right-0 z-50">
+				<nav className="md:hidden px-4 py-2 bg-white fixed bottom-0 left-0 right-0 z-50">
 					<div className="grid grid-cols-3 items-center bg-gray-100 rounded-full justify-around h-16 px-1">
 						<Link
 							to="/dashboard"
-							className={`flex flex-col min-w-full items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
+							className={`flex flex-col col-span-1 items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
 								isActive("/dashboard")
 									? "text-brand-500 bg-white"
 									: "text-gray-400"
@@ -99,7 +99,7 @@ const Navbar = ({ user, setUser }) => {
 
 						<Link
 							to="/transactions"
-							className={`flex flex-col min-w-full items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
+							className={`flex flex-col col-span-1 items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
 								isActive("/transactions")
 									? "text-brand-500 bg-white"
 									: "text-gray-400"
@@ -110,7 +110,7 @@ const Navbar = ({ user, setUser }) => {
 
 						<Link
 							to="/profile"
-							className={`flex flex-col min-w-[112px] items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
+							className={`flex flex-col col-span-1 items-center justify-center gap-1 px-6 py-2 rounded-full transition-all ${
 								isActive("/profile")
 									? "text-brand-500 bg-white"
 									: "text-gray-400"
