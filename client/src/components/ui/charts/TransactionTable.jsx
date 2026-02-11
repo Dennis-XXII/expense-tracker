@@ -12,13 +12,14 @@ import {
 } from "../../../utils/constants";
 import {
 	FaTrash,
+	FaPen,
 	FaFilter,
 	FaSortAmountDown,
 	FaArrowUp,
 	FaArrowDown,
 } from "react-icons/fa";
 
-const TransactionTable = ({ transactions, onDelete }) => {
+const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 	const [filterMonth, setFilterMonth] = useState("all");
 	const [filterType, setFilterType] = useState("all");
 	const [filterCategory, setFilterCategory] = useState("all");
@@ -50,13 +51,13 @@ const TransactionTable = ({ transactions, onDelete }) => {
 			);
 		}
 
-		// 2. Type & Category Filter
+		// Type & Category Filter
 		if (filterType !== "all")
 			result = result.filter((t) => t.type === filterType);
 		if (filterCategory !== "all")
 			result = result.filter((t) => t.category === filterCategory);
 
-		// 3. Sorting
+		// Sorting
 		result.sort((a, b) => {
 			const dateA = new Date(a.date);
 			const dateB = new Date(b.date);
@@ -178,8 +179,8 @@ const TransactionTable = ({ transactions, onDelete }) => {
 								<div
 									className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${
 										t.type === "income"
-											? "bg-purple-100 text-purple-600"
-											: "bg-red-50 text-red-500"
+											? "bg-emerald-100 text-emerald-600"
+											: "bg-rose-50 text-rose-600"
 									}`}>
 									{t.type === "income" ? (
 										<FaArrowDown className="transform -rotate-45" size={14} />
@@ -190,27 +191,33 @@ const TransactionTable = ({ transactions, onDelete }) => {
 
 								{/* Text Info */}
 								<div className="flex flex-col">
-									<span className="font-bold text-gray-800 text-sm truncate max-w-[140px]">
+									<span className="font-semibold text-gray-800 text-sm truncate max-w-[140px]">
 										{t.description || t.category}
 									</span>
-									<span className="text-xs text-gray-400 font-medium mt-0.5">
-										{format(parseISO(t.date), "MMM do, yyyy")}
+									<span className="font-thin text-xs text-gray-400"> </span>
+									<span className="text-xs text-gray-400 font-normal mt-0.5">
+										{t.category} / {format(parseISO(t.date), "MMM do, yyyy")}
 									</span>
 								</div>
 							</div>
 
-							{/* Right Side: Amount + Delete */}
-							<div className="flex items-center gap-3">
+							<div className="flex items-end gap-1.5">
 								<span
-									className={`font-bold text-base ${
+									className={`font-bold text-sm ${
 										t.type === "income" ? "text-emerald-500" : "text-rose-500"
 									}`}>
 									{t.type === "income" ? "+" : "-"}${t.amount.toLocaleString()}
 								</span>
 
 								<button
+									onClick={() => onEdit(t)}
+									className="p-1.5 text-gray-300 hover:text-blue-500 hover:bg-blue-50 rounded-full transition-all">
+									<FaPen size={12} />
+								</button>
+
+								<button
 									onClick={() => onDelete(t._id)}
-									className="p-2 text-gray-300 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all">
+									className="p-1.5 text-gray-300 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all">
 									<FaTrash size={14} />
 								</button>
 							</div>
@@ -275,11 +282,20 @@ const TransactionTable = ({ transactions, onDelete }) => {
 									{t.type === "income" ? "+" : "-"} ฿{t.amount.toLocaleString()}
 								</td>
 								<td className="px-6 py-4 text-center">
-									<button
-										onClick={() => onDelete(t._id)}
-										className="p-2 text-gray-400 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100">
-										<FaTrash size={14} />
-									</button>
+									<div className="flex items-center justify-center gap-4">
+										<button
+											onClick={() => onEdit(t)}
+											className="p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-50 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+											title="Edit">
+											<FaPen size={12} />
+										</button>
+
+										<button
+											onClick={() => onDelete(t._id)}
+											className="p-2 text-gray-400 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all opacity-0 group-hover:opacity-100 focus:opacity-100">
+											<FaTrash size={14} />
+										</button>
+									</div>
 								</td>
 							</tr>
 						))}

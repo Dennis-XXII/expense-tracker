@@ -29,7 +29,7 @@ const Navbar = ({ user, setUser }) => {
 							<FaWallet size={16} className="text-white" />
 						</div>
 						<span className="font-bold text-xl">
-							Expense<span className="text-rose-500">Tracker</span>
+							Expense<span className="text-rose-500">.</span>Tracker
 						</span>
 					</Link>
 
