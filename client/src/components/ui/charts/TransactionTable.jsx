@@ -18,7 +18,7 @@ const TransactionTable = ({ transactions, onDelete }) => {
 	const [filterCategory, setFilterCategory] = useState("all");
 	const [sortOrder, setSortOrder] = useState("dateDesc");
 
-	// 1. Extract unique months
+	// Extract unique months
 	const availableMonths = useMemo(() => {
 		const months = new Set();
 		transactions.forEach((t) => {
@@ -28,7 +28,7 @@ const TransactionTable = ({ transactions, onDelete }) => {
 		return Array.from(months).sort().reverse();
 	}, [transactions]);
 
-	// 2. Filter & Sort Logic
+	// Filter & Sort Logic
 	const filteredTransactions = useMemo(() => {
 		let result = [...transactions];
 

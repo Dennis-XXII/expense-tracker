@@ -165,7 +165,7 @@ const MonthlyComparisonChart = ({ transactions, timeFilter = "last30" }) => {
 							axisLine={false}
 							tickLine={false}
 							tick={{ fontSize: 11, fill: "#9ca3af" }}
-							interval={tickInterval} // Dynamic interval based on range
+							interval={tickInterval}
 							dy={10}
 						/>
 

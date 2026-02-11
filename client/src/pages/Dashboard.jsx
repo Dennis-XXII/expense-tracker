@@ -34,10 +34,8 @@ const Dashboard = ({ user }) => {
 	});
 	const [loading, setLoading] = useState(true);
 
-	// FILTER STATE
 	const [timeFilter, setTimeFilter] = useState("thisMonth");
 
-	// MODAL STATE
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const fetchData = async () => {
