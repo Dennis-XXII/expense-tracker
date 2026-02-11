@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+	--color-bg-500: #f9f9f9;
+	--color-brand-500: #000000;
+	--color-danger-500: #ff4d4f;
+	--color-success-500: #52c41a;
+	--color-warning-500: #faad14;
+}
