@@ -8,6 +8,27 @@ const api = axios.create({
 });
 console.log("API Base URL:", api.defaults.baseURL);
 
+api.interceptors.response.use(
+	(response) => response,
+	(error) => {
+		if (
+			error.response &&
+			(error.response.status === 401 ||
+				error.response.status === 403 ||
+				error.response.status === 404)
+		) {
+			console.warn("Session expired or unauthorized. Logging out...");
+
+			localStorage.removeItem("user");
+			localStorage.removeItem("token");
+
+			// Force redirect to login page
+			window.location.href = "/";
+		}
+		return Promise.reject(error);
+	},
+);
+
 export const registerUser = async (userData) => {
 	const response = await api.post("/auth/register", userData);
 	return response.data;
