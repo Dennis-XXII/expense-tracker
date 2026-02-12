@@ -1,6 +1,5 @@
 # Expense.Tracker 💰
 
-
 ![MERN Stack](https://img.shields.io/badge/MERN-Full%20Stack-success)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
@@ -14,77 +13,91 @@ The project emphasizes **data integrity**, **security best practices** (PIN hash
 
 ## Screenshots
 
-*(Place your screenshots in a /screenshots folder)*
+_(Place your screenshots in a /screenshots folder)_
 
-| **Mobile View (List)** | **Desktop View (Table)** |
-|:---:|:---:|
-| <img src="./screenshots/mobile-view.png" width="250" alt="Mobile UI" /> | <img src="./screenshots/desktop-view.png" width="400" alt="Desktop UI" /> |
+|                            **Mobile View (List)**                            |                         **Desktop View (Table)**                          |
+| :--------------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+| <img src="./screenshots/Dashboard_mobile.png" width="250" alt="Mobile UI" /> | <img src="./screenshots/Dashboard_PC.png" width="400" alt="Desktop UI" /> |
 
-| **Dashboard Summary** | **Edit Modal** |
-|:---:|:---:|
-| <img src="./screenshots/dashboard.png" width="300" alt="Dashboard" /> | <img src="./screenshots/edit-modal.png" width="300" alt="Edit Modal" /> |
+|                           **Transaction PC Summary**                            |                        **Transaction Mobile Summary**                        |
+| :-----------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
+| <img src="./screenshots/Transactions_Mobile.png" width="300" alt="Dashboard" /> | <img src="./screenshots/Transactions_PC.png" width="300" alt="Edit Modal" /> |
+
+|                      **Adding Transaction on PC**                       |                      **Editing Transactions on PC**                       |
+| :---------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+| <img src="./screenshots/AddModal_PC.png" width="300" alt="Dashboard" /> | <img src="./screenshots/EditModal_PC.png" width="300" alt="Edit Modal" /> |
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
 ### **Frontend**
-* **React.js (Vite):** Component-based UI architecture.
-* **Tailwind CSS:** Utility-first styling for responsive design.
-* **Axios:** HTTP client with interceptors for global error handling.
-* **Date-fns:** robust date manipulation and formatting.
-* **React Icons:** Visual indicators for UI elements.
-* **Recharts:** Charting and data visualization.
+
+- **React.js (Vite):** Component-based UI architecture.
+- **Tailwind CSS:** Utility-first styling for responsive design.
+- **Axios:** HTTP client with interceptors for global error handling.
+- **Date-fns:** robust date manipulation and formatting.
+- **React Icons:** Visual indicators for UI elements.
+- **Recharts:** Charting and data visualization.
 
 ### **Backend**
-* **Node.js & Express:** RESTful API architecture.
-* **MongoDB & Mongoose:** NoSQL database for flexible data modeling.
-* **Bcrypt.js:** Security hashing for User PINs.
-* **Cors & Dotenv:** Middleware for security and environment configuration.
+
+- **Node.js & Express:** RESTful API architecture.
+- **MongoDB & Mongoose:** NoSQL database for flexible data modeling.
+- **Bcrypt.js:** Security hashing for User PINs.
+- **Cors & Dotenv:** Middleware for security and environment configuration.
 
 ---
 
 ## Key Features
 
 ### **1. Transaction Management**
-* **CRUD Operations:** Users can Create, Read, Update, and Delete transactions seamlessly.
-* **Advanced Filtering:** Filter data by **Month**, **Type** (Income/Expense), and **Category**.
-* **Sorting:** dynamic sorting by Date and Amount.
-* **Editing:** Modal-based editing system that pre-fills existing data for quick updates.
+
+- **CRUD Operations:** Users can Create, Read, Update, and Delete transactions seamlessly.
+- **Advanced Filtering:** Filter data by **Month**, **Type** (Income/Expense), and **Category**.
+- **Sorting:** dynamic sorting by Date and Amount.
+- **Editing:** Modal-based editing system that pre-fills existing data for quick updates.
 
 ### **2. Dashboard & Analytics**
-* **Real-time Summary:** Calculates Total Income, Total Expense, and Current Balance on the fly.
-* **Daily Spending Logic:** Tracks expenses specifically for the current day (based on Bangkok timezone logic) against a user-defined limit.
+
+- **Real-time Summary:** Calculates Total Income, Total Expense, and Current Balance on the fly.
+- **Daily Spending Logic:** Tracks expenses specifically for the current day (based on Bangkok timezone logic) against a user-defined limit.
 
 ### **3. Responsive UX Design**
-* **Adaptive Layouts:**
-    * *Mobile:* Renders a card-based list view with large touch targets and simplified actions.
-    * *Desktop:* Renders a detailed data table with hover effects and dense information display.
-* **Interactive Feedback:** Loading states, success alerts, and confirmation modals for destructive actions (Delete).
+
+- **Adaptive Layouts:**
+  - _Mobile:_ Renders a card-based list view with large touch targets and simplified actions.
+  - _Desktop:_ Renders a detailed data table with hover effects and dense information display.
+- **Interactive Feedback:** Loading states, success alerts, and confirmation modals for destructive actions (Delete).
 
 ### **4. Security & Authentication**
-* **PIN Authentication:** Users register/login using a numeric PIN which is hashed before storage.
-* **Session Management:**
-    * **Auto-Logout (Inactivity):** Frontend listener logs users out after 30 minutes of inactivity.
-    * **Token Expiry Handling:** Axios interceptors catch `401 Unauthorized` errors and force a redirect to login.
+
+- **PIN Authentication:** Users register/login using a numeric PIN which is hashed before storage.
+- **Session Management:**
+  - **Auto-Logout (Inactivity):** Frontend listener logs users out after 30 minutes of inactivity.
+  - **Token Expiry Handling:** Axios interceptors catch `401 Unauthorized` errors and force a redirect to login.
 
 ---
 
 ## System Architecture
 
 ### **Database Schema**
-* **User:** Stores profile info, hashed PIN, and financial settings (Initial Balance, Daily Limit).
-* **Transaction:** Linked to `User` via ObjectId. Stores amount, type, category, date, and description. Indexed by `user` and `date` for performance.
+
+- **User:** Stores profile info, hashed PIN, and financial settings (Initial Balance, Daily Limit).
+- **Transaction:** Linked to `User` via ObjectId. Stores amount, type, category, date, and description. Indexed by `user` and `date` for performance.
 
 ### **API Structure**
+
 The backend follows a RESTful pattern:
-* `/api/auth`: Handles registration and login.
-* `/api/transactions`: Handles all CRUD operations for financial records.
-* `/api/users`: Handles profile updates (Name, Limits, Balance).
+
+- `/api/auth`: Handles registration and login.
+- `/api/transactions`: Handles all CRUD operations for financial records.
+- `/api/users`: Handles profile updates (Name, Limits, Balance).
 
 ---
 
 ## Getting Started
+
 ### **Deployment**
 
 Frontend Depooyment : **Vercel**
@@ -95,16 +108,19 @@ Backend Depooyment : **Render** (Due to free plan restrictions, it may take abou
 Follow these instructions to set up the project locally.
 
 ### **Prerequisites**
-* Node.js (v14+)
-* MongoDB (Local or Atlas URL)
+
+- Node.js (v14+)
+- MongoDB (Local or Atlas URL)
 
 ### **1. Clone the Repository**
+
 ```bash
 git clone [https://github.com/yourusername/expense-tracker.git](https://github.com/yourusername/expense-tracker.git)`
 cd expense-tracker
 
 ```
-``` bash
+
+```bash
 
 # **FRONTEND SETUP**
 
@@ -118,7 +134,8 @@ echo "VITE_API_URL=http://localhost:5001/api" > .env
 npm run dev
 
 ```
-``` bash
+
+```bash
 
 # **BACKEND SETUP**
 
@@ -134,20 +151,22 @@ echo "JWT_SECRET=your_secret_key" >> .env
 npm start
 
 ```
+
 The app should now be running at <a href=http://localhost:5173> http://localhost:5173 </a>
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| **POST** | `/api/auth/register` | Register a new user with PIN and initial balance. |
-| **POST** | `/api/auth/login` | Authenticate user and receive access token. |
-| **GET** | `/api/transactions/:userId` | Retrieve full transaction history for a user. |
-| **GET** | `/api/transactions/summary/:userId` | Get dashboard stats (Balance, Totals, Daily Limit). |
-| **POST** | `/api/transactions` | Create a new income or expense record. |
-| **PUT** | `/api/transactions/:id` | Update an existing transaction's details. |
-| **DELETE** | `/api/transactions/:id` | Permanently remove a transaction. |
-| **PUT** | `/api/users/:id` | Update user profile, limits, or initial balance. |
+| Method     | Endpoint                            | Description                                         |
+| :--------- | :---------------------------------- | :-------------------------------------------------- |
+| **POST**   | `/api/auth/register`                | Register a new user with PIN and initial balance.   |
+| **POST**   | `/api/auth/login`                   | Authenticate user and receive access token.         |
+| **GET**    | `/api/transactions/:userId`         | Retrieve full transaction history for a user.       |
+| **GET**    | `/api/transactions/summary/:userId` | Get dashboard stats (Balance, Totals, Daily Limit). |
+| **POST**   | `/api/transactions`                 | Create a new income or expense record.              |
+| **PUT**    | `/api/transactions/:id`             | Update an existing transaction's details.           |
+| **DELETE** | `/api/transactions/:id`             | Permanently remove a transaction.                   |
+| **PUT**    | `/api/users/:id`                    | Update user profile, limits, or initial balance.    |
 
 ### **Future Improvements**
+
 Data Visualization: Add more charts using Recharts for visual expense breakdown.
 
 Export: Ability to export transaction history to CSV/PDF.
@@ -155,4 +174,3 @@ Export: Ability to export transaction history to CSV/PDF.
 Recurring Transactions: Logic to handle subscriptions automatically.
 
 Written by: **Kyaw Swar Hein**
-
