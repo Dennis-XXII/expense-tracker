@@ -238,7 +238,7 @@ const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 			</div>
 
 			{/* Desktop Table */}
-			<div className="hidden md:block overflow-x-auto overflow-y-auto max-h-[500px] scrollbar-thin">
+			<div className="hidden md:block overflow-x-auto overflow-y-auto max-h-[800px] scrollbar-thin">
 				<table className="w-full text-sm text-left border-collapse">
 					<thead className="text-xs text-gray-500 uppercase bg-gray-50/80 backdrop-blur sticky top-0 z-10">
 						<tr>
