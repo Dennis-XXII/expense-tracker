@@ -16,7 +16,10 @@ import {
 } from "react-router-dom";
 
 function App() {
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState(() => {
+		const savedUser = localStorage.getItem("user");
+		return savedUser ? JSON.parse(savedUser) : null;
+	});
 
 	// Check if user is already logged in
 	useEffect(() => {

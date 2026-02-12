@@ -39,12 +39,12 @@ const Profile = ({ user, setUser }) => {
 	};
 
 	return (
-		<div className="p-2 lg:pt-20 lg:px-6 max-w-screen mx-auto min-h-screen">
+		<div className="p-2 lg:px-6 max-w-screen mx-auto min-h-[calc(100vh-5rem)] my-auto">
 			<h1 className="hidden md:block text-3xl font-bold text-gray-800 mb-2">
 				My Profile
 			</h1>
 
-			<div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden min-h-[800px]">
+			<div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden min-h-[600px]">
 				<div className="bg-brand-500 h-32 relative">
 					<div className="absolute -bottom-10 left-8">
 						<div className="w-24 h-24 bg-white rounded-full p-1 shadow-md">

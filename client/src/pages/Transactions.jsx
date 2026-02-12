@@ -114,7 +114,7 @@ const Transactions = ({ user }) => {
 			</div>
 
 			<div className="grid grid-cols-1">
-				<div className="w-full bg-white rounded-xl h-[800px] overflow-hidden">
+				<div className="w-full bg-white rounded-xl h-[630px] overflow-hidden">
 					<TransactionTable
 						transactions={transactions}
 						onDelete={handleDelete}
