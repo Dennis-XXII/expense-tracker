@@ -17,7 +17,7 @@ _(Place your screenshots in a /screenshots folder)_
 
 |                            **Mobile View (List)**                            |                         **Desktop View (Table)**                          |
 | :--------------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
-| <img src="./screenshots/Dashboard_mobile.png" width="250" alt="Mobile UI" /> | <img src="./screenshots/Dashboard_PC.png" width="400" alt="Desktop UI" /> |
+| <img src="./screenshots/Dashboard_Mobile.png" width="250" alt="Mobile UI" /> | <img src="./screenshots/Dashboard_PC.png" width="400" alt="Desktop UI" /> |
 
 |                           **Transaction PC Summary**                            |                        **Transaction Mobile Summary**                        |
 | :-----------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
