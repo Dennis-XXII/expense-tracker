@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Transactions from "./pages/Transactions.jsx";
 import Profile from "./pages/Profile.jsx";
 import Navbar from "./components/ui/NavBar.jsx";
+import SessionHandler from "./components/auth/SessionHandler.jsx";
 
 import {
 	BrowserRouter as Router,
@@ -35,6 +36,7 @@ function App() {
 		<Router>
 			<div className="min-h-screen bg-gray-100 text-gray-900 font-sans">
 				{/* Simple Navbar */}
+				{user && <SessionHandler setUser={setUser} />}
 				{user && <Navbar user={user} setUser={setUser} />}
 
 				<Routes>
