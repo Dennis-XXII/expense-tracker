@@ -34,7 +34,7 @@ const Register = ({ setUser }) => {
 
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gray-100 py-10">
-			<div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+			<div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
 				<h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
 					Create Account
 				</h2>
@@ -129,7 +129,7 @@ const Register = ({ setUser }) => {
 							</div>
 							<div className="col-span-2">
 								<label className="block text-xs font-medium text-gray-700">
-									Daily Spending Limit (THB)
+									Daily Spending Limit (฿)
 								</label>
 								<input
 									type="number"
@@ -149,7 +149,7 @@ const Register = ({ setUser }) => {
 
 					<button
 						type="submit"
-						className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700 mt-4">
+						className="w-full bg-brand-500 text-white p-2 rounded-lg hover:bg-gray-800 mt-4">
 						Register
 					</button>
 				</form>
