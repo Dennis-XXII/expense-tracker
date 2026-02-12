@@ -35,12 +35,12 @@ const Navbar = ({ user, setUser }) => {
 
 					{/* 2. Navigation Links (Center) */}
 					{user && (
-						<div className="grid grid-cols-3 items-center gap-1 bg-gray-100/50 p-1 rounded-full ">
+						<div className="grid grid-cols-3 items-center gap-1 bg-gray-100 p-1 rounded-full ">
 							<Link
 								to="/dashboard"
 								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/dashboard")
-										? "bg-white text-brand-600 -sm ring-1 ring-gray-200"
+										? "bg-white text-brand-500 rounded-full"
 										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
 								}`}>
 								<FaChartPie size={14} />
@@ -50,7 +50,7 @@ const Navbar = ({ user, setUser }) => {
 								to="/transactions"
 								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/transactions")
-										? "bg-white text-brand-600 text-sm"
+										? "bg-white text-brand-500 rounded-full"
 										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
 								}`}>
 								<FaList size={14} />
@@ -60,7 +60,7 @@ const Navbar = ({ user, setUser }) => {
 								to="/profile"
 								className={`flex w-full place-items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
 									isActive("/profile")
-										? "bg-white text-brand-600 -sm ring-1 ring-gray-200"
+										? "bg-white text-brand-500 rounded-full"
 										: "text-gray-500 hover:text-gray-900 hover:bg-gray-200/50"
 								}`}>
 								<FaUser size={14} />

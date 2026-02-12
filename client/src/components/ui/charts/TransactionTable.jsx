@@ -17,6 +17,7 @@ import {
 	FaSortAmountDown,
 	FaArrowUp,
 	FaArrowDown,
+	FaSortAmountUp,
 } from "react-icons/fa";
 
 const TransactionTable = ({ transactions, onDelete, onEdit }) => {
@@ -103,7 +104,7 @@ const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 							className="px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 outline-none"
 							value={filterMonth}
 							onChange={(e) => setFilterMonth(e.target.value)}>
-							<option value="all">Months</option>
+							<option value="all">All</option>
 							{availableMonths.map((m) => (
 								<option key={m} value={m}>
 									{format(parseISO(m + "-01"), "MMM yyyy")}
@@ -118,7 +119,7 @@ const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 								setFilterType(e.target.value);
 								setFilterCategory("all");
 							}}>
-							<option value="all">Types</option>
+							<option value="all">Both Type</option>
 							<option value="income">Income</option>
 							<option value="expense">Expense</option>
 						</select>
@@ -127,7 +128,7 @@ const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 							className="px-2 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 outline-none"
 							value={filterCategory}
 							onChange={(e) => setFilterCategory(e.target.value)}>
-							<option value="all">Categories</option>
+							<option value="all">All Categories</option>
 							{filterType === "income"
 								? INCOME_CATEGORIES.map((c) => (
 										<option key={c} value={c}>
@@ -149,18 +150,21 @@ const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 
 						<div className="relative">
 							<select
-								className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 outline-none pl-8 appearance-none"
+								className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-600 outline-none appearance-none"
 								value={sortOrder}
 								onChange={(e) => setSortOrder(e.target.value)}>
-								<option value="dateDesc">Newest</option>
-								<option value="dateAsc">Oldest</option>
-								<option value="amountDesc">High Amount</option>
-								<option value="amountAsc">Low Amount</option>
+								<option value="dateDesc">Newest to Oldest</option>
+								<option value="dateAsc">Oldest to Newest</option>
+								<option value="amountDesc">Highest to Lowest</option>
+								<option value="amountAsc">Lowest to Highest</option>
 							</select>
-							<FaSortAmountDown
-								className="absolute left-3 top-3 text-gray-400"
-								size={12}
-							/>
+							<div>
+								{sortOrder === "amountDesc" || sortOrder === "dateDesc" ? (
+									<FaSortAmountUp className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+								) : (
+									<FaSortAmountDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+								)}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -234,7 +238,7 @@ const TransactionTable = ({ transactions, onDelete, onEdit }) => {
 			</div>
 
 			{/* Desktop Table */}
-			<div className="hidden md:block overflow-x-auto overflow-y-auto max-h-[700px] scrollbar-thin">
+			<div className="hidden md:block overflow-x-auto overflow-y-auto max-h-[500px] scrollbar-thin">
 				<table className="w-full text-sm text-left border-collapse">
 					<thead className="text-xs text-gray-500 uppercase bg-gray-50/80 backdrop-blur sticky top-0 z-10">
 						<tr>
