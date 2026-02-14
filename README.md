@@ -103,7 +103,11 @@ The backend follows a RESTful pattern:
 Frontend Depooyment : **Vercel**
 WebApp Link : <a href="https://expense-tracker-zeta-eosin-16.vercel.app"> Expense.Tracker </a>
 
-Backend Depooyment : **Render** (Due to free plan restrictions, it may take about 50 seconds for api response when you first log in)
+Backend Deployment : **Render** 
+
+For a demo account with seeded data for visualizaition, use the following account:
+Username : **dennis123**
+pin : **1234**
 
 Follow these instructions to set up the project locally.
 
@@ -115,7 +119,7 @@ Follow these instructions to set up the project locally.
 ### **1. Clone the Repository**
 
 ```bash
-git clone [https://github.com/yourusername/expense-tracker.git](https://github.com/yourusername/expense-tracker.git)`
+git clone https://github.com/Dennis-XXII/expense-tracker
 cd expense-tracker
 
 ```
